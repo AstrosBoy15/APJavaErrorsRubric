@@ -21,7 +21,7 @@ public abstract class Entity extends Objects {
 
 	@Override
 	public void tick() {
-		//move();
+		move(new Vector2f(0, 0));
 	}
 
 	private void move(Vector2f dir) {
