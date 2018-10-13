@@ -3,7 +3,7 @@ package com.draglantix.main;
 public class Configs {
 
 	public static final float VERSION = 0.01f;
-	public static final String TITLE = "The Legend of the Dragon Hunter v";
+	public static final String TITLE = "AP Rubric: Java Errors v";
 	public static final boolean PRINT_FPS = true;
 
 	public static final double FPS_CAP = 60;

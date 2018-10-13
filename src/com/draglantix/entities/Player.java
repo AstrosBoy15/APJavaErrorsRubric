@@ -14,7 +14,7 @@ public class Player extends Entity {
 	
 	public Player(int texture, Vector2f position, Vector2f rotation, Vector2f scale, Vector4f color) {
 		super(texture, position, rotation, scale, color);
-		animation = new Animation(12, 12, "character/Walking");
+		animation = new Animation(12, 12, "character/Walking", true);
 	}
 
 	@Override
