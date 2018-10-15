@@ -18,13 +18,18 @@ public abstract class Entity extends Objects {
 		super(texture, position, rotation, scale, colors, true);
 		this.scale = new Vector2f(scale);
 	}
+	
+	public Entity(Entity e, Vector2f position) {
+		super(e.texture, position, e.rotation, e.scale, e.color, true);
+		this.scale = e.scale;
+	}
 
 	@Override
 	public void tick() {
 		move(new Vector2f(0, 0));
 	}
 
-	private void move(Vector2f dir) {
+	protected void move(Vector2f dir) {
 		PhysicsEngine.move(dir, this);
 	}
 

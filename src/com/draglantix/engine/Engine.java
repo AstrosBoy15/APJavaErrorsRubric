@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.lwjgl.opengl.GL11;
+
 import com.draglantix.assets.Assets;
 import com.draglantix.entities.Entity;
 import com.draglantix.foregrounds.Foreground;
@@ -25,6 +27,7 @@ public class Engine {
 		initObjects(Entity.class);
 		initObjects(Gui.class);
 		initObjects(Foreground.class);
+		GL11.glClearColor(1, 1, 1, 1);
 	}
 
 	public static void renderState(List<Class<? extends Objects>> classes) {

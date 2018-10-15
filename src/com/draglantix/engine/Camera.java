@@ -4,6 +4,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 
 import com.draglantix.entities.Player;
+import com.draglantix.main.Configs;
 import com.draglantix.renderEngine.engine.ICamera;
 
 public class Camera implements ICamera {
@@ -27,8 +28,7 @@ public class Camera implements ICamera {
 	}
 
 	public void move() {
-		
-		position.lerp(player.getPosition(), lerp);
+		position.lerp(new Vector2f(player.getPosition().x, player.getPosition().y + Configs.HEIGHT/2 - player.getScale().y), lerp);
 	}
 	
 	@Override

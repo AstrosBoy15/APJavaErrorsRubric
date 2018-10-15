@@ -8,7 +8,6 @@ import com.draglantix.guis.Gui;
 import com.draglantix.renderEngine.font.Message;
 import com.draglantix.renderEngine.models.Animation;
 import com.draglantix.renderEngine.models.SpriteSheet;
-import com.draglantix.util.Maths;
 
 public class MenuAssets {
 
@@ -24,7 +23,7 @@ public class MenuAssets {
 		MenuAssets.assets = assets;
 		
 		title = new SpriteSheet("title");
-		titleAnim = new Animation(3, 3, 64, 30, title, false);
+		titleAnim = new Animation(3, 3, 64, 20, title, false);
 		
 		titleGUI = new Gui(titleAnim, new Vector2f(0, 0), new Vector2f(0, 0), new Vector2f(128, 128), new Vector4f(1, 1, 1, 1));
 		

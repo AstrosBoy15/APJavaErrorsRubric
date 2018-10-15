@@ -18,7 +18,7 @@ public class Main {
 	}
 
 	private void init() {
-		window = new Window(Configs.WIDTH, Configs.HEIGHT, Configs.TITLE + Configs.VERSION);
+		window = new Window(Configs.WIDTH, Configs.HEIGHT, Configs.TITLE);
 		gsm = new GameStateManager(State.INTRO, window);
 		fpsHandler = new FPSHandler(Configs.PRINT_FPS);
 	}
