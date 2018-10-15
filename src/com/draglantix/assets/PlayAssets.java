@@ -21,6 +21,8 @@ public class PlayAssets {
 	public static SpriteSheet objects;
 
 	public static Texture playerTex, wallTex, tableTex;
+	
+	public static Texture tex9, tex8, tex7, tex6, tex5, tex4, tex3, tex2, tex1, tex0, tex_;
 
 	public static World world;
 	
@@ -31,6 +33,18 @@ public class PlayAssets {
 		playerTex = new Texture("character/idle");
 		wallTex = new Texture("wall");
 		tableTex = new Texture("table");
+		
+		tex9 = new Texture("9");
+		tex8 = new Texture("8");
+		tex7 = new Texture("7");
+		tex6 = new Texture("6");
+		tex5 = new Texture("5");
+		tex4 = new Texture("4");
+		tex3 = new Texture("3");
+		tex2 = new Texture("2");
+		tex1 = new Texture("1");
+		tex0 = new Texture("0");
+		tex_ = new Texture("na");
 		
 		objects = new SpriteSheet("ScienceObjects");
 		
