@@ -12,25 +12,28 @@ import com.draglantix.world.World;
 
 public class PlayAssets {
 
+	public static Assets assets;
+	
 	public static Camera camera = null;
 
 	public static Player player;
 
-	public static SpriteSheet blackboard, table, window, objects;
+	public static SpriteSheet objects;
 
-	public static Texture playerTex;
+	public static Texture playerTex, wallTex, tableTex;
 
 	public static World world;
-
+	
 	public static void load(Assets assets) {
-
+		
+		PlayAssets.assets = assets;
+		
 		playerTex = new Texture("character/idle");
-
-		blackboard = new SpriteSheet("Blackboard");
-		table = new SpriteSheet("Table");
-		window = new SpriteSheet("Window");
+		wallTex = new Texture("wall");
+		tableTex = new Texture("table");
+		
 		objects = new SpriteSheet("ScienceObjects");
-
+		
 		player = new Player(playerTex.getTextureID(), new Vector2f(0, 0), new Vector2f(0, 0), new Vector2f(128, 128),
 				new Vector4f(1, 1, 1, 1), 10);
 

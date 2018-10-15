@@ -6,7 +6,7 @@ public class Configs {
 	public static final boolean PRINT_FPS = true;
 
 	public static final double FPS_CAP = 60;
-	public static final int WIDTH = 1200;
-	public static final int HEIGHT = 900;
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 600;
 	
 }

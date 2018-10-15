@@ -3,133 +3,95 @@ package com.draglantix.world;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
+import com.draglantix.assets.MenuAssets;
 import com.draglantix.assets.PlayAssets;
 import com.draglantix.engine.Engine;
-import com.draglantix.engine.PhysicsEngine;
+import com.draglantix.entities.Background;
 import com.draglantix.entities.Entity;
 import com.draglantix.entities.General;
+import com.draglantix.renderEngine.font.Message;
 import com.draglantix.renderEngine.models.Texture;
 
 public class World {
 
 	public final int SCALE = 2;
 
+	public static String r_, r0, r1,r2,r3,r4,r5,r6,r7,r8,r9;
+	
 	public void init() {
 		
-		//Blackboard
-		General blackboardTopLeft = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(0, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(0, 320 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE), new Vector4f(1, 1, 1, 1));
-		General blackboardTopMiddle = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(32, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * SCALE, 320 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General blackboardTopRight = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(0, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(640 * SCALE, 320 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General blackboardRight = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(32, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(640 * SCALE, 128 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General blackboardLeft = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(32, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(0 * SCALE, 128 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General blackboardMiddle = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(64, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * SCALE, 128 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General blackboardBottomLeft = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(0, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(0, 64 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE), new Vector4f(1, 1, 1, 1));
-		General blackboardBottomMiddle = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(32, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * SCALE, 64 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General blackboardBottomRight = new General(
-				new Texture(PlayAssets.blackboard.crop(new Vector2f(0, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(640 * SCALE, 64 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		PhysicsEngine.flip(blackboardTopRight);
-		PhysicsEngine.rotate(blackboardBottomLeft, 90);
-		PhysicsEngine.rotate(blackboardBottomRight, 180);
-		PhysicsEngine.rotate(blackboardBottomMiddle, 180);
-		PhysicsEngine.rotate(blackboardLeft, 90);
-		PhysicsEngine.rotate(blackboardRight, 270);
-
-		Engine.addObject(Entity.class, blackboardTopLeft);
-		Engine.addObject(Entity.class, blackboardTopMiddle);
-		Engine.addObject(Entity.class, blackboardTopRight);
-		Engine.addObject(Entity.class, blackboardBottomLeft);
-		Engine.addObject(Entity.class, blackboardBottomMiddle);
-		Engine.addObject(Entity.class, blackboardBottomRight);
-		Engine.addObject(Entity.class, blackboardRight);
-		Engine.addObject(Entity.class, blackboardLeft);
-		Engine.addObject(Entity.class, blackboardMiddle);
-
-		for(int i = 2; i < 10; i++) {
-
-			for(int j = 1; j <= 3; j++) {
-				Engine.addObject(Entity.class,
-						new General(blackboardMiddle, new Vector2f(64 * i * SCALE, 128 + 64 * j * SCALE)));
-			}
-
-			Engine.addObject(Entity.class, new General(blackboardTopMiddle, new Vector2f(64 * i * SCALE, 320 * SCALE)));
-			Engine.addObject(Entity.class,
-					new General(blackboardBottomMiddle, new Vector2f(64 * i * SCALE, 64 * SCALE)));
-		}
-
-		for(int j = 1; j < 3; j++) {
-			Engine.addObject(Entity.class, new General(blackboardRight,
-					new Vector2f(blackboardRight.getPosition().x, blackboardRight.getPosition().y + 64 * j * SCALE)));
-			Engine.addObject(Entity.class, new General(blackboardLeft,
-					new Vector2f(blackboardLeft.getPosition().x, blackboardLeft.getPosition().y + 64 * j * SCALE)));
-			Engine.addObject(Entity.class, new General(blackboardMiddle,
-					new Vector2f(blackboardMiddle.getPosition().x, blackboardMiddle.getPosition().y + 64 * j * SCALE)));
-		}
+		r9 = "9 - Logic Error";
+		r8 = "8 - Core Dump";
+		r7 = "7 - File Not Found";
+		r6 = "6 - Concurrent Modification";
+		r5 = "5 - Array out of Bounds";
+		r4 = "4 - Static Access";
+		r3 = "3 - Null Pointer Exception";
+		r2 = "2 - Cast Exception"; 
+		r1 = "1 - Syntax Error";
+		r0 = "0 - Warning";
+		r_ = "NA - Code works perfectly.";
 		
+		for(int z = 0; z < 10; z ++) {
+			Background wall = new Background(PlayAssets.wallTex.getTextureID(), new Vector2f(512*z*SCALE, 205), new Vector2f(0, 0), new Vector2f(512, 270), new Vector4f(1, 1, 1, 1), 0f);
+			Engine.addObject(Entity.class, wall);
+			
+			switch(z) {
+			
+			case 0:
+				Message a = new Message(r_, new Vector2f(85 * SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(a);
+				break;
+			case 1:	
+				Message b = new Message(r0, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(b);
+				break;
+			case 2:
+				Message c = new Message(r1, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(c);
+				break;
+			case 3:
+				Message d = new Message(r2, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(d);
+				break;
+			case 4:
+				Message e = new Message(r3, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(e);
+				break;
+			case 5:
+				Message f = new Message(r4, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(f);
+				break;
+			case 6:
+				Message g = new Message(r5, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(g);
+				break;
+			case 7:
+				Message h = new Message(r6, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(h);
+				break;
+			case 8:
+				Message i = new Message(r7, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(i);
+				break;
+			case 9:
+				Message j = new Message(r8, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(j);
+				break;
+			default:
+				Message k = new Message(r9, new Vector2f(z*-532*SCALE, 200), new Vector2f(0, 0), new Vector2f(5, 5), new Vector4f(1, 1, 1, 1), true, PlayAssets.assets.graphics);	
+				PlayAssets.assets.messages.add(k);
+				break;
+			}
+		}
 		
 		//Player
 		Engine.addObject(Entity.class, PlayAssets.player);
 
-		
-		//Table
-		General tableTopLeft = new General(
-				new Texture(PlayAssets.table.crop(new Vector2f(32, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(0, 0), new Vector2f(0, 0), new Vector2f(32 * SCALE), new Vector4f(1, 1, 1, 1));
-		General tableTopMiddle = new General(
-				new Texture(PlayAssets.table.crop(new Vector2f(0, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * SCALE, 0), new Vector2f(0, 0), new Vector2f(32 * SCALE), new Vector4f(1, 1, 1, 1));
-		General tableTopRight = new General(
-				new Texture(PlayAssets.table.crop(new Vector2f(32, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * 32 * SCALE, 0), new Vector2f(0, 0), new Vector2f(32 * SCALE), new Vector4f(1, 1, 1, 1));
-		General tableBottomLeft = new General(
-				new Texture(PlayAssets.table.crop(new Vector2f(64, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(0, -64 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE), new Vector4f(1, 1, 1, 1));
-		General tableBottomMiddle = new General(
-				new Texture(PlayAssets.table.crop(new Vector2f(96, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * SCALE, -64 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		General tableBottomRight = new General(
-				new Texture(PlayAssets.table.crop(new Vector2f(64, 0), new Vector2f(32, 32))).getTextureID(),
-				new Vector2f(64 * 32 * SCALE, -64 * SCALE), new Vector2f(0, 0), new Vector2f(32 * SCALE),
-				new Vector4f(1, 1, 1, 1));
-		PhysicsEngine.flip(tableTopRight);
-		PhysicsEngine.flip(tableBottomRight);
-
-		Engine.addObject(Entity.class, tableTopLeft);
-		Engine.addObject(Entity.class, tableTopMiddle);
-		Engine.addObject(Entity.class, tableTopRight);
-		Engine.addObject(Entity.class, tableBottomLeft);
-		Engine.addObject(Entity.class, tableBottomMiddle);
-		Engine.addObject(Entity.class, tableBottomRight);
-
-		for(int i = 2; i < 32; i++) {
-			Engine.addObject(Entity.class, new General(tableTopMiddle, new Vector2f(64 * i * SCALE, 0)));
-			Engine.addObject(Entity.class, new General(tableBottomMiddle, new Vector2f(64 * i * SCALE, -64 * SCALE)));
+		for(int z = 0; z < 9; z ++) {
+			Background table = new Background(PlayAssets.tableTex.getTextureID(), new Vector2f(z * 512 * SCALE, -70), new Vector2f(0, 0), new Vector2f(420, 64), new Vector4f(1, 1, 1, 1), 0f);
+			Engine.addObject(Entity.class, table);
 		}
-
 		
 		//Science Objects
 		General beakerR = new General(
