@@ -29,6 +29,7 @@ public class Camera implements ICamera {
 
 	public void move() {
 		position.lerp(new Vector2f(player.getPosition().x, player.getPosition().y + Configs.HEIGHT/2 - player.getScale().y), lerp);
+		correctCamera();
 	}
 	
 	@Override
@@ -39,7 +40,14 @@ public class Camera implements ICamera {
 		view.translate(-position.x, -position.y, 0);
 		return view;
 	}
-
+	
+	private void correctCamera() {
+		if(position.x > 470.5 * 11 * 2)
+			position.x = 470.5f * 11 * 2;
+		if(position.x < -110)
+			position.x = -110;
+	}
+	
 	@Override
 	public Vector2f getPosition() {
 		return position;

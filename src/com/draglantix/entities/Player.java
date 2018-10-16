@@ -30,10 +30,10 @@ public class Player extends Entity {
 
 	private void movePlayer() {
 
-		if(Window.getInput().isKeyDown(GLFW.GLFW_KEY_A)) {
+		if(Window.getInput().isKeyDown(GLFW.GLFW_KEY_A) && position.x>-480) {
 			currentSpeed.x -= speed;
 		}
-		if(Window.getInput().isKeyDown(GLFW.GLFW_KEY_D)) {
+		if(Window.getInput().isKeyDown(GLFW.GLFW_KEY_D) && position.x<487*11*2) {
 			currentSpeed.x += speed;
 		}
 		

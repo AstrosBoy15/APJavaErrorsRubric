@@ -6,6 +6,8 @@ import org.joml.Vector4f;
 import com.draglantix.engine.Camera;
 import com.draglantix.entities.Player;
 import com.draglantix.main.Configs;
+import com.draglantix.renderEngine.audio.AudioMaster;
+import com.draglantix.renderEngine.audio.Source;
 import com.draglantix.renderEngine.models.SpriteSheet;
 import com.draglantix.renderEngine.models.Texture;
 import com.draglantix.world.World;
@@ -20,19 +22,28 @@ public class PlayAssets {
 
 	public static SpriteSheet objects;
 
-	public static Texture playerTex, wallTex, tableTex;
+	public static Texture playerTex, wallTex, tableTex, skyTex, mntTex;
 	
 	public static Texture tex9, tex8, tex7, tex6, tex5, tex4, tex3, tex2, tex1, tex0, tex_;
 
 	public static World world;
 	
 	public static void load(Assets assets) {
+	
+		int buffer = AudioMaster.loadSound("circuitous_tune.wav");
+		Source source = new Source(1.5f, 1000);
+		source.setLooping(true);
+		source.play(buffer);
+		source.setPosition(64,64,0);
+		AudioMaster.sources.add(source);
 		
 		PlayAssets.assets = assets;
 		
 		playerTex = new Texture("character/idle");
 		wallTex = new Texture("wall");
 		tableTex = new Texture("table");
+		skyTex = new Texture("sky");
+		mntTex = new Texture("mountains");
 		
 		tex9 = new Texture("9");
 		tex8 = new Texture("8");

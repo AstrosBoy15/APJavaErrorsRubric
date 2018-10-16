@@ -1,6 +1,7 @@
 package com.draglantix.main;
 
 import com.draglantix.engine.Engine;
+import com.draglantix.renderEngine.audio.AudioMaster;
 import com.draglantix.renderEngine.engine.FPSHandler;
 import com.draglantix.renderEngine.window.Window;
 import com.draglantix.states.GameStateManager;
@@ -21,6 +22,7 @@ public class Main {
 		window = new Window(Configs.WIDTH, Configs.HEIGHT, Configs.TITLE);
 		gsm = new GameStateManager(State.INTRO, window);
 		fpsHandler = new FPSHandler(Configs.PRINT_FPS);
+		AudioMaster.init();
 	}
 
 	private void run() {
@@ -36,6 +38,7 @@ public class Main {
 		Window.cleanUp();
 		Engine.cleanUp();
 		gsm.getAssets().graphics.cleanUp();
+		AudioMaster.cleanUp();
 	}
 
 	public static void main(String[] args) {

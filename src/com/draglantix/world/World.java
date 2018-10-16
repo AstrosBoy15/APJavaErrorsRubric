@@ -16,6 +16,11 @@ public class World {
 
 	public void init() {
 	
+		Background sky = new Background(PlayAssets.skyTex.getTextureID(), new Vector2f(0, 40), new Vector2f(0, 0), new Vector2f(400, 250), new Vector4f(1, 1, 1, 1), 1f);
+		Engine.addObject(Entity.class, sky);
+		Background mnts = new Background(PlayAssets.mntTex.getTextureID(), new Vector2f(512, 40), new Vector2f(0, 0), new Vector2f(512*2, 64*2), new Vector4f(1, 1, 1, 1), 0.9f);
+		Engine.addObject(Entity.class, mnts);
+		
 		for(int z = 0; z < 11; z ++) {
 			Background wall = new Background(PlayAssets.wallTex.getTextureID(), new Vector2f(512*z*SCALE, 205), new Vector2f(0, 0), new Vector2f(512, 270), new Vector4f(1, 1, 1, 1), 0f);
 			Engine.addObject(Entity.class, wall);
