@@ -34,6 +34,8 @@ public class Assets {
 		case PLAY:
 			PlayAssets.load(this);
 			break;
+		case INTRO:
+			IntroAssets.load(this);
 		default:
 			MenuAssets.load(this);
 			break;

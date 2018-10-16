@@ -12,6 +12,8 @@ import com.draglantix.renderEngine.window.Window;
 public class MenuState extends GameState{
 
 	private boolean startAdded = false;
+	private float alpha3;
+	private boolean increase, changeState, shouldChange;
 	
 	public MenuState(GameStateManager gsm, List<Class<? extends Objects>> activeClasses) {
 		super(gsm, activeClasses);
@@ -21,13 +23,17 @@ public class MenuState extends GameState{
 	protected void load(State state) {
 		super.load(state);
 		System.out.println("Menu init");
+		alpha3 = 0;
+		increase = true;
+		changeState = false;
+		shouldChange = false;
 	}
 	
 	@Override
 	protected void tick() {
 		Engine.tickState(activeClasses);
 		if(Window.getInput().isKeyPressed(GLFW.GLFW_KEY_SPACE)) {
-			gsm.setState(State.PLAY);
+			shouldChange = true;
 		}else {
 		
 			if(MenuAssets.titleAnim.hasPlayed()) {
@@ -49,6 +55,23 @@ public class MenuState extends GameState{
 					}
 				}
 			}
+		}
+		if(shouldChange) {
+			if(increase && !changeState) {
+				alpha3 += 0.01f;
+			} else {
+				alpha3 -= 0.01f;
+			}
+
+			if(alpha3 >= 1) {
+				alpha3 = 1;
+				increase = false;
+				changeState = true;
+			}
+			MenuAssets.black.setA(alpha3);
+		}
+		if(changeState) {
+			gsm.setState(State.PLAY);
 		}
 	}
 	

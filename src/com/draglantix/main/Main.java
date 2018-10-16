@@ -20,9 +20,9 @@ public class Main {
 
 	private void init() {
 		window = new Window(Configs.WIDTH, Configs.HEIGHT, Configs.TITLE);
+		AudioMaster.init();
 		gsm = new GameStateManager(State.INTRO, window);
 		fpsHandler = new FPSHandler(Configs.PRINT_FPS);
-		AudioMaster.init();
 	}
 
 	private void run() {

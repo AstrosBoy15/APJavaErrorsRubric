@@ -31,10 +31,10 @@ public class Engine {
 	}
 
 	public static void renderState(List<Class<? extends Objects>> classes) {
+		renderMessages(assets.messages);
 		for(Class<? extends Objects> clazz : classes) {
 			renderMaster(clazz);
 		}
-		renderMessages(assets.messages);
 	}
 
 	public static void tickState(List<Class<? extends Objects>> classes) {

@@ -8,7 +8,6 @@ import com.draglantix.assets.Assets;
 import com.draglantix.assets.PlayAssets;
 import com.draglantix.engine.Engine;
 import com.draglantix.entities.Entity;
-import com.draglantix.foregrounds.Foreground;
 import com.draglantix.guis.Gui;
 import com.draglantix.renderEngine.objects.Objects;
 import com.draglantix.renderEngine.window.Window;
@@ -22,14 +21,17 @@ public class GameStateManager {
 	private Window window;
 
 	private GameState currentStateClass;
-	
+
+	private IntroState introState;
 	private MenuState menuState;
 	private PlayState playState;
-	
+
+	private List<Class<? extends Objects>> introActiveClasses = new ArrayList<Class<? extends Objects>>(
+			Arrays.asList());
 	private List<Class<? extends Objects>> menuActiveClasses = new ArrayList<Class<? extends Objects>>(
 			Arrays.asList(Gui.class));
 	private List<Class<? extends Objects>> playActiveClasses = new ArrayList<Class<? extends Objects>>(
-			Arrays.asList(Entity.class, Foreground.class, Gui.class));
+			Arrays.asList(Entity.class, Gui.class));
 
 	public GameStateManager(State startState, Window window) {
 		currentState = startState;
@@ -39,6 +41,7 @@ public class GameStateManager {
 
 		new Engine(assets);
 
+		introState = new IntroState(this, introActiveClasses);
 		menuState = new MenuState(this, menuActiveClasses);
 		playState = new PlayState(this, playActiveClasses);
 
@@ -61,6 +64,9 @@ public class GameStateManager {
 		switch(currentState) {
 		case PLAY:
 			currentStateClass = playState;
+			break;
+		case INTRO:
+			currentStateClass = introState;
 			break;
 		default:
 			currentStateClass = menuState;
