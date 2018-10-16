@@ -10,6 +10,7 @@ import com.draglantix.guis.Gui;
 import com.draglantix.main.Configs;
 import com.draglantix.renderEngine.models.SpriteSheet;
 import com.draglantix.renderEngine.models.Texture;
+import com.draglantix.util.FileReader;
 import com.draglantix.world.World;
 
 public class PlayAssets {
@@ -34,25 +35,25 @@ public class PlayAssets {
 
 		PlayAssets.assets = assets;
 
-		playerTex = new Texture("character/idle");
-		wallTex = new Texture("wall");
-		tableTex = new Texture("table");
-		skyTex = new Texture("sky");
-		mntTex = new Texture("mountains");
+		playerTex = new Texture(FileReader.loadImage("character/idle"));
+		wallTex = new Texture(FileReader.loadImage("wall"));
+		tableTex = new Texture(FileReader.loadImage("table"));
+		skyTex = new Texture(FileReader.loadImage("sky"));
+		mntTex = new Texture(FileReader.loadImage("mountains"));
 
-		tex9 = new Texture("9");
-		tex8 = new Texture("8");
-		tex7 = new Texture("7");
-		tex6 = new Texture("6");
-		tex5 = new Texture("5");
-		tex4 = new Texture("4");
-		tex3 = new Texture("3");
-		tex2 = new Texture("2");
-		tex1 = new Texture("1");
-		tex0 = new Texture("0");
-		tex_ = new Texture("na");
+		tex9 = new Texture(FileReader.loadImage("9"));
+		tex8 = new Texture(FileReader.loadImage("8"));
+		tex7 = new Texture(FileReader.loadImage("7"));
+		tex6 = new Texture(FileReader.loadImage("6"));
+		tex5 = new Texture(FileReader.loadImage("5"));
+		tex4 = new Texture(FileReader.loadImage("4"));
+		tex3 = new Texture(FileReader.loadImage("3"));
+		tex2 = new Texture(FileReader.loadImage("2"));
+		tex1 = new Texture(FileReader.loadImage("1"));
+		tex0 = new Texture(FileReader.loadImage("0"));
+		tex_ = new Texture(FileReader.loadImage("na"));
 
-		objects = new SpriteSheet("ScienceObjects");
+		objects = new SpriteSheet(FileReader.loadImage("ScienceObjects"));
 
 		player = new Player(playerTex.getTextureID(), new Vector2f(-110, 0), new Vector2f(0, 0), new Vector2f(128, 128),
 				new Vector4f(1, 1, 1, 1), 10);

@@ -9,6 +9,7 @@ import com.draglantix.main.Configs;
 import com.draglantix.renderEngine.font.Message;
 import com.draglantix.renderEngine.models.Animation;
 import com.draglantix.renderEngine.models.SpriteSheet;
+import com.draglantix.util.FileReader;
 
 public class MenuAssets {
 
@@ -25,7 +26,7 @@ public class MenuAssets {
 
 		MenuAssets.assets = assets;
 
-		title = new SpriteSheet("title");
+		title = new SpriteSheet(FileReader.loadImage("title"));
 		titleAnim = new Animation(3, 3, 64, 20, title, false);
 
 		titleGUI = new Gui(titleAnim, new Vector2f(0, 0), new Vector2f(0, 0), new Vector2f(128, 128),

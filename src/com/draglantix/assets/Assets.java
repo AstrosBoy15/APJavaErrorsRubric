@@ -9,6 +9,7 @@ import com.draglantix.renderEngine.font.Message;
 import com.draglantix.renderEngine.graphics.Graphics;
 import com.draglantix.renderEngine.models.SpriteSheet;
 import com.draglantix.states.State;
+import com.draglantix.util.FileReader;
 
 public class Assets {
 	
@@ -23,7 +24,7 @@ public class Assets {
 		messages = new ArrayList<Message>();
 		graphics = new Graphics();
 		
-		fontTex = new SpriteSheet("font");
+		fontTex = new SpriteSheet(FileReader.loadImage("font"));
 		font = new Font(fontTex, 32);
 		graphics.setFont(font);
 		
