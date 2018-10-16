@@ -25,6 +25,8 @@ public class World {
 				new Vector2f(512 * 2, 64 * 2), new Vector4f(1, 1, 1, 1), 0.9f);
 		Engine.addObject(Entity.class, mnts);
 
+		Engine.addObject(Entity.class, PlayAssets.sheep);
+		
 		for(int z = -1; z < 10; z++) {
 			Background wall = new Background(PlayAssets.wallTex.getTextureID(),
 					new Vector2f(512 * (z + 1) * SCALE, 205), new Vector2f(0, 0), new Vector2f(512, 270),

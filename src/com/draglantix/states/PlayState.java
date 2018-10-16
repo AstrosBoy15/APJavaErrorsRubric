@@ -6,6 +6,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.draglantix.assets.PlayAssets;
 import com.draglantix.engine.Engine;
+import com.draglantix.engine.PhysicsEngine;
 import com.draglantix.renderEngine.objects.Objects;
 
 public class PlayState extends GameState {
@@ -38,6 +39,8 @@ public class PlayState extends GameState {
 			finished = true;
 		}
 		PlayAssets.black.setA(alpha);
+		
+		PhysicsEngine.rotate(PlayAssets.sheep, 10);
 	}
 
 	protected void renderScene() {

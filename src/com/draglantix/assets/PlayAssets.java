@@ -5,6 +5,7 @@ import org.joml.Vector4f;
 
 import com.draglantix.engine.Camera;
 import com.draglantix.engine.Engine;
+import com.draglantix.entities.General;
 import com.draglantix.entities.Player;
 import com.draglantix.guis.Gui;
 import com.draglantix.main.Configs;
@@ -23,7 +24,7 @@ public class PlayAssets {
 
 	public static SpriteSheet objects;
 
-	public static Texture playerTex, wallTex, tableTex, skyTex, mntTex;
+	public static Texture playerTex, wallTex, tableTex, skyTex, mntTex, sheepTex;
 
 	public static Texture tex9, tex8, tex7, tex6, tex5, tex4, tex3, tex2, tex1, tex0, tex_;
 
@@ -33,6 +34,8 @@ public class PlayAssets {
 
 	public static Texture[] playerAnim;
 
+	public static General sheep;
+	
 	public static void load(Assets assets) {
 
 		PlayAssets.assets = assets;
@@ -42,6 +45,7 @@ public class PlayAssets {
 		tableTex = new Texture(FileReader.loadImage("table"));
 		skyTex = new Texture(FileReader.loadImage("sky"));
 		mntTex = new Texture(FileReader.loadImage("mountains"));
+		sheepTex = new Texture(FileReader.loadImage("sheep"));
 
 		tex9 = new Texture(FileReader.loadImage("9"));
 		tex8 = new Texture(FileReader.loadImage("8"));
@@ -55,8 +59,10 @@ public class PlayAssets {
 		tex0 = new Texture(FileReader.loadImage("0"));
 		tex_ = new Texture(FileReader.loadImage("na"));
 
-		objects = new SpriteSheet(FileReader.loadImage("ScienceObjects"));
+		objects = new SpriteSheet(FileReader.loadImage("scienceObjects"));
 
+		sheep = new General(sheepTex.getTextureID(), new Vector2f(10560, 150), new Vector2f(0, 0), new Vector2f(32, 32), new Vector4f(1, 1, 1, 1));
+		
 		playerAnim = new Texture[12];
 
 		for(int i = 0; i < playerAnim.length; i++) {
