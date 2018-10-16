@@ -18,7 +18,7 @@ public class Player extends Entity {
 
 	public Player(int texture, Vector2f position, Vector2f rotation, Vector2f scale, Vector4f color, float speed) {
 		super(texture, position, rotation, scale, color);
-		animation = new Animation(12, 12, PlayAssets.playerAnim, true);
+		animation = new Animation(12, 18, PlayAssets.playerAnim, true);
 		this.speed = speed;
 	}
 

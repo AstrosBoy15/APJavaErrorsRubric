@@ -225,19 +225,19 @@ public class World {
 								new Texture(PlayAssets.objects.crop(new Vector2f(0, 0), new Vector2f(16, 16)))
 										.getTextureID(),
 								new Vector2f(z * 512 * SCALE + 300, 12 * SCALE), new Vector2f(0, 0),
-								new Vector2f(16 * SCALE), new Vector4f(1, 1, 0.5f, 1)));
+								new Vector2f(16 * SCALE), new Vector4f(1, 0, 0.5f, 1)));
 				Engine.addObject(Entity.class,
 						new General(
 								new Texture(PlayAssets.objects.crop(new Vector2f(0, 0), new Vector2f(16, 16)))
 										.getTextureID(),
 								new Vector2f(z * 512 * SCALE + 24 * SCALE + 300, 12 * SCALE), new Vector2f(0, 0),
-								new Vector2f(16 * SCALE), new Vector4f(0.5f, 1, 1, 1)));
+								new Vector2f(16 * SCALE), new Vector4f(0.5f, 0, 1, 1)));
 				Engine.addObject(Entity.class,
 						new General(
 								new Texture(PlayAssets.objects.crop(new Vector2f(0, 0), new Vector2f(16, 16)))
 										.getTextureID(),
 								new Vector2f(z * 512 * SCALE + 12 * SCALE + 300, 12 * SCALE), new Vector2f(0, 0),
-								new Vector2f(16 * SCALE), new Vector4f(1, 0.5f, 1, 1)));
+								new Vector2f(16 * SCALE), new Vector4f(1, 0.5f, 0, 1)));
 				break;
 			case 2:
 				Engine.addObject(Entity.class,

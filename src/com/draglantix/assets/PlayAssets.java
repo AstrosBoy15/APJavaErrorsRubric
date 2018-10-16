@@ -61,7 +61,7 @@ public class PlayAssets {
 
 		objects = new SpriteSheet(FileReader.loadImage("scienceObjects"));
 
-		sheep = new General(sheepTex.getTextureID(), new Vector2f(10560, 150), new Vector2f(0, 0), new Vector2f(32, 32), new Vector4f(1, 1, 1, 1));
+		sheep = new General(sheepTex.getTextureID(), new Vector2f(10680, 95), new Vector2f(0, 0), new Vector2f(6, 6), new Vector4f(1, 1, 1, 1));
 		
 		playerAnim = new Texture[12];
 
