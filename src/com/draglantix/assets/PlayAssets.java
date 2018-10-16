@@ -28,8 +28,10 @@ public class PlayAssets {
 	public static Texture tex9, tex8, tex7, tex6, tex5, tex4, tex3, tex2, tex1, tex0, tex_;
 
 	public static Gui black;
-	
+
 	public static World world;
+
+	public static Texture[] playerAnim;
 
 	public static void load(Assets assets) {
 
@@ -55,11 +57,17 @@ public class PlayAssets {
 
 		objects = new SpriteSheet(FileReader.loadImage("ScienceObjects"));
 
+		playerAnim = new Texture[12];
+
+		for(int i = 0; i < playerAnim.length; i++) {
+			playerAnim[i] = new Texture(FileReader.loadImage("character/Walking" + i));
+		}
+
 		player = new Player(playerTex.getTextureID(), new Vector2f(-110, 0), new Vector2f(0, 0), new Vector2f(128, 128),
 				new Vector4f(1, 1, 1, 1), 10);
 
-		black = new Gui(-1, new Vector2f(0, 0), new Vector2f(0, 0),
-				new Vector2f(Configs.WIDTH, Configs.HEIGHT), new Vector4f(0, 0, 0, 1));
+		black = new Gui(-1, new Vector2f(0, 0), new Vector2f(0, 0), new Vector2f(Configs.WIDTH, Configs.HEIGHT),
+				new Vector4f(0, 0, 0, 1));
 
 		camera = new Camera(
 				new Vector2f(player.getPosition().x, player.getPosition().y + Configs.HEIGHT / 2 - player.getScale().y),
@@ -69,12 +77,12 @@ public class PlayAssets {
 		world = new World();
 		addObjects();
 	}
-	
+
 	public static void addObjects() {
 		Engine.addObject(Gui.class, black);
 	}
 
 	public static void unload() {
-		
+
 	}
 }
